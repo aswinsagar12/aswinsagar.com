@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "package.json",
+  "engines": {
+    "node": ">=18 <23"
+  },
   "author": "WRONG <aswinsagar12@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
@@ -15,6 +18,7 @@
   ],
   "dependencies": {
     "@sanity/base": "^2.27.1",
+    "@sanity/cli": "2.20.0",
     "@sanity/core": "^2.27.0",
     "@sanity/default-layout": "^2.27.1",
     "@sanity/default-login": "^2.27.0",
