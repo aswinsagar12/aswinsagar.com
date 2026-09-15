@@ -381,7 +381,10 @@ function Hero() {
   return (
     <section className="hero" id="home" aria-labelledby="hero-title">
       <div className="hero__copy">
-        <p className="hero__eyebrow">Site Reliability Engineer and Visual Creator</p>
+        <p className="hero__eyebrow">
+          <span className="hero__eyebrow-desktop">Site Reliability Engineer and Visual Creator</span>
+          <span className="hero__eyebrow-mobile">Site Reliability Engineer</span>
+        </p>
         <h1 className="hero__title" id="hero-title">
           <span>Aswin</span>
           <span>Sagar</span>
@@ -752,12 +755,14 @@ export default function App() {
     const media = gsap.matchMedia();
     const context = gsap.context(() => {
       media.add("(prefers-reduced-motion: no-preference)", () => {
-        gsap.from(".hero-reveal", {
-          y: 44,
-          opacity: 0,
-          duration: 1,
-          stagger: 0.12,
-          ease: "power3.out",
+        media.add("(min-width: 481px)", () => {
+          gsap.from(".hero-reveal", {
+            y: 44,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.12,
+            ease: "power3.out",
+          });
         });
 
         const sectionRevealSelector = [
@@ -909,6 +914,21 @@ export default function App() {
               },
             );
           });
+        });
+
+        media.add("(max-width: 480px)", () => {
+          gsap.timeline({
+            scrollTrigger: {
+              trigger: ".hero",
+              start: "top top",
+              end: "bottom top",
+              scrub: 0.65,
+            },
+          })
+            .to(".hero__eyebrow", { yPercent: -55, opacity: 0.3, ease: "none" }, 0)
+            .to(".hero__title", { yPercent: -12, scale: 0.96, opacity: 0.66, ease: "none" }, 0)
+            .to(".hero__portrait-layer", { yPercent: 7, scale: 1.035, ease: "none" }, 0)
+            .to(".location-widget", { yPercent: -22, opacity: 0.45, ease: "none" }, 0);
         });
 
         gsap.to(".work__scan", {

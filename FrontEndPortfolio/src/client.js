@@ -1,10 +1,13 @@
 import sanityClient from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 
-// Public portfolio content is readable without exposing a token in the bundle.
+// These identifiers are public and safe to bundle. Environment values can override them.
+const projectId = import.meta.env.VITE_SANITY_PROJECT_ID?.trim() || 'l04crhjd';
+const dataset = import.meta.env.VITE_SANITY_DATASET?.trim() || 'production';
+
 export const client = sanityClient({
-  projectId: import.meta.env.VITE_SANITY_PROJECT_ID,
-  dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
+  projectId,
+  dataset,
   apiVersion: '2022-03-05',
   useCdn: true,
 });
