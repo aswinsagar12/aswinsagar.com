@@ -1,0 +1,44 @@
+@media (hover: hover) and (pointer: fine) {
+  body, a, button, input, .capability, .experience-card, .testimonial-card, .project, .moment { cursor: none; }
+  .pixel-cursor__dot,
+    .pixel-cursor__ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 200;
+      mix-blend-mode: difference;
+      pointer-events: none;
+      transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
+    }
+  .pixel-cursor__dot {
+      width: 5px;
+      height: 5px;
+      background: #fff;
+    }
+  .pixel-cursor__ring {
+      width: 18px;
+      height: 18px;
+      border: 1px solid rgb(255 255 255 / .42);
+      transition: width 180ms steps(3, end), height 180ms steps(3, end), border-color 180ms steps(3, end);
+    }
+  .pixel-cursor__ring[data-interactive] { width: 28px; height: 28px; border-color: #fff; }
+  .pixel-cursor__trail {
+      position: fixed;
+      z-index: 199;
+      width: 3.5px;
+      height: 3.5px;
+      background: #fff;
+      mix-blend-mode: difference;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      animation: cursor-trail-fade 380ms steps(4, end) forwards;
+    }
+}
+
+@keyframes cursor-trail-fade {
+  to { opacity: 0; transform: translate(-50%, -50%) scale(.3); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-cursor__dot, .pixel-cursor__ring, .pixel-cursor__trail { display: none; }
+}

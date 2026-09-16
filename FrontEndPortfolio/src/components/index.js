@@ -1,9 +1,0 @@
-export { default as Navbar } from "./Navbar";
-export { default as SocialMedia } from "./SocialMedia";
-export { default as Hero } from "./Hero";
-export { default as Marquee } from "./Marquee";
-export { default as About } from "./About";
-export { default as Profile } from "./Profile";
-export { default as Experience } from "./Experience";
-export { default as Contact } from "./Contact";
-export { default as Footer } from "./Footer";

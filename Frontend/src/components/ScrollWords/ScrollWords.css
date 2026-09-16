@@ -1,0 +1,9 @@
+.scroll-letters, .scroll-letter-line { display: block; }
+
+.scroll-letter-word, .scroll-letter { display: inline-block; }
+
+.scroll-letter { color: #77736d; }
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-letter { color: var(--text); }
+}

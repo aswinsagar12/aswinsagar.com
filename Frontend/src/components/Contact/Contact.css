@@ -1,0 +1,59 @@
+.contact { padding-bottom: 2rem; border-top: 1px solid var(--line); }
+
+.contact > .section-label,
+.contact__title .scroll-letter { color: rgb(255 255 255 / .9); }
+
+.contact__title {
+  margin: clamp(2.5rem, 5vw, 5rem) 0;
+  font: 800 clamp(4rem, 12vw, 13rem)/.78 var(--display);
+  letter-spacing: -.085em;
+  text-transform: uppercase;
+}
+
+.contact__email {
+  display: inline-flex;
+  width: max-content;
+  max-width: 100%;
+  min-height: 52px;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  color: rgb(255 255 255 / .9);
+  font-size: clamp(1rem, 1.35vw, 1.35rem);
+  transition: border-color 220ms ease, color 220ms ease;
+}
+
+.contact__email:hover, .contact__email:focus-visible { border-color: var(--text); color: var(--text); }
+
+.contact__email-arrow { flex: 0 0 auto; font-size: 1.1em; }
+
+.contact__footer {
+  display: flex;
+  padding-top: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  color: rgb(255 255 255 / .9);
+  font: .68rem/1.4 var(--mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.contact__footer p { margin: 0; color: rgb(255 255 255 / .9); }
+
+.contact__socials { display: flex; max-width: 46rem; flex-wrap: wrap; justify-content: flex-end; gap: .3rem 1.4rem; }
+
+.contact__footer a { display: inline-flex; min-height: 44px; align-items: center; color: rgb(255 255 255 / .9); transition: color 180ms ease, transform 180ms ease; }
+
+.contact__footer a svg { margin-right: .35rem; }
+
+.contact__footer a:hover, .contact__footer a:focus-visible { color: #fff; transform: translateY(-1px); }
+
+@media (max-width: 720px) {
+  .contact__title { margin-block: 3rem; font-size: clamp(3.7rem, 20vw, 7rem); }
+  .contact__email { align-items: flex-start; font-size: clamp(.92rem, 3.4vw, 1.15rem); overflow-wrap: anywhere; }
+  .contact__footer { align-items: flex-start; flex-direction: column; }
+  .contact__socials { justify-content: flex-start; gap: .3rem 1rem; }
+}

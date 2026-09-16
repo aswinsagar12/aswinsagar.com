@@ -1,0 +1,11 @@
+export { default as About } from "./About/About";
+export { default as Capabilities } from "./Capabilities/Capabilities";
+export { default as Contact } from "./Contact/Contact";
+export { default as Experience } from "./Experience/Experience";
+export { default as Hero } from "./Hero/Hero";
+export { default as Moments } from "./Moments/Moments";
+export { default as Navbar } from "./Navbar/Navbar";
+export { default as PixelCursor } from "./PixelCursor/PixelCursor";
+export { default as SocialRail } from "./SocialRail/SocialRail";
+export { default as Testimonials } from "./Testimonials/Testimonials";
+export { default as Work } from "./Work/Work";

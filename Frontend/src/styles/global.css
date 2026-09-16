@@ -1,0 +1,105 @@
+:root {
+  color-scheme: dark;
+  --bg: #080808;
+  --surface: #111111;
+  --text: #ffffff;
+  --muted: #a29f99;
+  --line: #2a2927;
+  --accent: #ffffff;
+  --accent-soft: #ffffff;
+  --yellow: #e9d633;
+  --terminal-green: #28c840;
+  --page: min(92vw, 1440px);
+  --hero-font: "Zalando Sans Variable", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --display: "Untitled Sans", "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  --body: "Untitled Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "Akkurat Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; background: var(--bg); }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.5 var(--body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, a { color: inherit; font: inherit; }
+
+a { text-decoration: none; }
+
+button { border: 0; }
+
+img { display: block; width: 100%; height: auto; }
+
+::selection { background: var(--text); color: var(--bg); }
+
+:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 5px; }
+
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  padding: .8rem 1rem;
+  background: var(--text);
+  color: var(--bg);
+  transform: translateY(-160%);
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus { transform: translateY(0); }
+
+.site { min-height: 100vh; overflow: clip; }
+
+.section { width: var(--page); margin: 0 auto; padding-block: clamp(6rem, 11vw, 11rem); transform-origin: 50% 0; }
+
+.section-label {
+  color: var(--muted);
+  font: .72rem/1.4 var(--mono);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.section-heading {
+  max-width: 850px;
+  margin: .75rem 0 0;
+  font: 800 clamp(2.8rem, 6.2vw, 6.8rem)/.92 var(--display);
+  letter-spacing: -.065em;
+}
+
+.project:hover .project__meta h3,
+.moment:hover figcaption { animation: component-blur-resolve 420ms steps(5, end) both; }
+
+@keyframes component-blur-resolve {
+  0% { opacity: .28; filter: blur(4px); text-shadow: 2px 0 0 rgb(255 255 255 / .18); }
+  55% { opacity: .84; filter: blur(1px); text-shadow: -1px 0 0 rgb(255 255 255 / .12); }
+  100% { opacity: 1; filter: blur(0); text-shadow: none; }
+}
+
+@media (max-width: 720px) {
+  :root { --page: calc(100vw - 32px); }
+  .section { padding-block: 6rem; }
+  .section-heading { font-size: clamp(2.8rem, 14vw, 5rem); }
+}
+
+@media (max-width: 480px) {
+  :root { --page: calc(100vw - 48px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+      scroll-behavior: auto !important;
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important;
+    }
+}
